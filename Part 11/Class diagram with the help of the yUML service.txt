@@ -1,0 +1,14 @@
+[Teacher|-name: String|+Teacher(name: String);+toString(): String]
+[Class|-course: String|+Class(teacher: Teacher, course: String);+printInformation(): void]
+[LearningInstitution||+LearningInstitution();+addTeacher(teacher: Teacher): void;+toString(): String]
+[Class]->[Teacher]
+[LearningInstitution]->*[Teacher]
+
+
+Breakdown:
+
+[LearningInstitution||...: The two pipes || mean the attribute section is intentionally left blank because the ArrayList<Teacher> is represented by the relationship arrow instead.
+
++printInformation(): void: Standard yUML usually drops the void, but MOOC requires it to be explicitly declared for normal methods.
+
+[LearningInstitution]->*[Teacher]: This fulfills the MOOC requirement for representing an ArrayList instance variable as a "one-to-many" directed arrow with a star.
